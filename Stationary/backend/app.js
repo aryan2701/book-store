@@ -3,9 +3,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const salesRoutes = require('./routes/salesRoutes');
-const customerRoutes = require('./routes/customerRoutes');
-require('./config/db'); // Connects to database
-
+const adminRoutes = require('./routes/adminRoutes');
+const connectDB = require('./config/db'); // Import connectDB function
+require('dotenv').config(); // Import dotenv to load .env variables
+connectDB();
 const app = express();
 
 // Middleware
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 // Routes
 app.use('/inventory', inventoryRoutes);
 app.use('/sales', salesRoutes);
-app.use('/customers', customerRoutes);
+app.use('/adminproduct', adminRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
