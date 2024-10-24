@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB connection URI
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/bookstore'; // Use your MongoDB URI here
+const MONGO_URI = process.env.MONGO_URI ; // Use your MongoDB URI here
 
 // Connect to MongoDB
 const connectDB = async () => {
